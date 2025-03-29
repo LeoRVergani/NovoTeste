@@ -12,3 +12,4 @@ C:\Users\verga\Desktop\BaltaIO\Csharp\NovoTeste\obj\Debug\net9.0\refint\NovoTest
 C:\Users\verga\Desktop\BaltaIO\Csharp\NovoTeste\obj\Debug\net9.0\NovoTeste.pdb
 C:\Users\verga\Desktop\BaltaIO\Csharp\NovoTeste\obj\Debug\net9.0\NovoTeste.genruntimeconfig.cache
 C:\Users\verga\Desktop\BaltaIO\Csharp\NovoTeste\obj\Debug\net9.0\ref\NovoTeste.dll
+c:\Users\verga\Desktop\BaltaIO\Csharp\NovoTeste\obj\Debug\net9.0\NovoTeste.sourcelink.json
