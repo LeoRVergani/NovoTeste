@@ -54,9 +54,32 @@ namespace NovoTeste
             texto3.ToString();
             Console.WriteLine(texto3);
 
+            Console.Clear();
+            
+            var dataNow = DateTime.Now;
+            var data = new DateTime(2020, 10, 12, 8, 23, 14);
+
+            Console.WriteLine(dataNow);
+            Console.WriteLine(data.Year);
+            Console.WriteLine(data.Month);
+            Console.WriteLine(data.Day);
+            Console.WriteLine(data.Date);
+            Console.WriteLine(data.DayOfWeek);
+            Console.WriteLine(data.DayOfYear);
+
+            var formato = String.Format("{0:yyyy->MM<-dd hh:mm:ss ff zz}", data);
+            Console.WriteLine(formato);
 
 
 
+
+
+
+        }
+
+        private static bool Format(string v, DateTime data)
+        {
+            throw new NotImplementedException();
         }
     }
 }
