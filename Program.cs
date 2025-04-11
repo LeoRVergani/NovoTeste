@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
 
 namespace NovoTeste
@@ -59,6 +60,8 @@ namespace NovoTeste
             var dataNow = DateTime.Now;
             var data = new DateTime(2020, 10, 12, 8, 23, 14);
 
+            data = DateTime.Now;
+
             Console.WriteLine(dataNow);
             Console.WriteLine(data.Year);
             Console.WriteLine(data.Month);
@@ -71,9 +74,53 @@ namespace NovoTeste
             Console.WriteLine(formato);
 
 
+            Console.WriteLine(data.AddDays(12));
+            Console.WriteLine(data.AddHours(20));
+            Console.WriteLine(data.AddYears(100));
 
+            DateTime? dataNula = null;
+            Console.WriteLine(dataNula);
 
+            if(data.Date == DateTime.Now.Date)
+            {
+                Console.WriteLine("É igual!");
+            }
 
+            Console.WriteLine(data.AddMonths(1));
+
+            var pt = new CultureInfo("pt-PT");
+            var en = new CultureInfo("en-US");
+            var atual = CultureInfo.CurrentCulture;
+
+            Console.WriteLine(DateTime.Now.ToString("y", en));
+            Console.WriteLine(DateTime.Now.ToString("y", atual));
+
+            var dateTime = DateTime.UtcNow;
+            Console.WriteLine(dateTime);
+            Console.WriteLine(dateTime.ToLocalTime());
+
+            var timezoneAustralia = TimeZoneInfo.FindSystemTimeZoneById("Pacific/Auckland");
+            Console.WriteLine(timezoneAustralia);
+
+            var horaAustralia = TimeZoneInfo.ConvertTimeFromUtc(dateTime, timezoneAustralia);
+            Console.Write(horaAustralia);
+
+            var timezones = TimeZoneInfo.GetSystemTimeZones();
+            foreach (var timezone in timezones)
+            {
+                Console.WriteLine(timezone.Id);
+                Console.WriteLine(timezone);
+                Console.WriteLine(TimeZoneInfo.ConvertTimeFromUtc(dateTime, timezone ));
+                Console.WriteLine("___________________");
+            }
+
+            var timeSpan = new TimeSpan();
+            Console.WriteLine(timeSpan);
+
+            Console.WriteLine(DateTime.DaysInMonth(2025, 3));
+
+            Console.WriteLine(IsWeekend(DateTime.Now.DayOfWeek));
+            Console.WriteLine(DateTime.Now.IsDaylightSavingTime());
 
         }
 
@@ -81,5 +128,11 @@ namespace NovoTeste
         {
             throw new NotImplementedException();
         }
+
+        static bool IsWeekend(DayOfWeek today)
+        {
+            return today == DayOfWeek.Saturday || today == DayOfWeek.Sunday;
+        }
+
     }
 }
