@@ -147,8 +147,67 @@ namespace NovoTeste
                 Console.WriteLine(funcionario.Nome);
             }
 
+            var primeiro = new int[4];
+            var segundo = new int[4];
 
+            segundo[0] = primeiro[0];
 
+            primeiro[0] = 23;
+            
+            
+
+            Console.WriteLine(primeiro[0]);
+            Console.WriteLine(segundo[0]);
+
+            var teste = new int[3];
+
+            try
+            {
+                //for (var index = 0; index < 10; index++)
+                //{
+                    // IndexOutOfRangeException
+                //    Console.WriteLine(teste[index]);
+                //}
+
+                Cadastrar("");
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Não encontrei o índice na lista");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Falha ao cadastrar texto");
+            }
+            catch (MinhaException ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.QuandoAconteceu);
+                Console.WriteLine("Exceção customizada");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Ops, algo deu errado!");
+            }
+            finally
+            {
+                Console.WriteLine("Chegou ao fim.");
+            }
+        }
+
+        private static void Cadastrar(string texto)
+        {
+            if(string.IsNullOrEmpty(texto))
+            {
+                throw new MinhaException(DateTime.Now);
+            }
         }
 
         private static bool Format(string v, DateTime data)
@@ -164,6 +223,15 @@ namespace NovoTeste
         public struct Funcionario {
             public int Id { get; set; }
             public string Nome { get; set; }
+        }
+
+        public class MinhaException : Exception
+        {
+            public MinhaException(DateTime date)
+            {
+                QuandoAconteceu = date;
+            }
+            public DateTime QuandoAconteceu { get; set; }
         }
 
     }
