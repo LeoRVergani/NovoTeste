@@ -122,6 +122,33 @@ namespace NovoTeste
             Console.WriteLine(IsWeekend(DateTime.Now.DayOfWeek));
             Console.WriteLine(DateTime.Now.IsDaylightSavingTime());
 
+            decimal valor = 10.25m;
+            Console.WriteLine(valor.ToString("C", CultureInfo.CreateSpecificCulture("pt-BR")));
+
+            Console.WriteLine(Math.Round(valor));
+            Console.WriteLine(Math.Floor(valor));
+            Console.WriteLine(Math.Ceiling(valor));
+
+            var meuArray = new int[5] { 1, 2, 3, 4, 5 };
+            meuArray[0] = 1322;
+
+            foreach (var item in meuArray)
+            {
+                Console.WriteLine(item);
+            }
+
+            var funcionarios = new Funcionario[2];
+            funcionarios[0] = new Funcionario() { Id = 2000, Nome = "Leonardo" };
+            funcionarios[1] =  new Funcionario() { Id = 3000, Nome = "Rodrigo" };
+
+            foreach(var funcionario in funcionarios)
+            {
+                Console.WriteLine(funcionario.Id);
+                Console.WriteLine(funcionario.Nome);
+            }
+
+
+
         }
 
         private static bool Format(string v, DateTime data)
@@ -132,6 +159,11 @@ namespace NovoTeste
         static bool IsWeekend(DayOfWeek today)
         {
             return today == DayOfWeek.Saturday || today == DayOfWeek.Sunday;
+        }
+
+        public struct Funcionario {
+            public int Id { get; set; }
+            public string Nome { get; set; }
         }
 
     }
